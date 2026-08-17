@@ -1,161 +1,848 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💕 My AI Girlfriend</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .chat-container {
-            width: 380px;
-            max-width: 95%;
-            height: 600px;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .header {
-            background: #ff6b6b;
-            color: white;
-            padding: 18px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            background: #f9f9f9;
-        }
-        .message {
-            margin-bottom: 12px;
-            padding: 10px 15px;
-            border-radius: 18px;
-            max-width: 80%;
-            word-wrap: break-word;
-            animation: fadeIn 0.3s;
-        }
-        .user {
-            background: #ff6b6b;
-            color: white;
-            margin-left: auto;
-            border-bottom-right-radius: 5px;
-        }
-        .bot {
-            background: #e8e8e8;
-            color: #333;
-            border-bottom-left-radius: 5px;
-        }
-        .input-area {
-            display: flex;
-            padding: 12px;
-            background: white;
-            border-top: 1px solid #ddd;
-        }
-        input {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #ffb3b3;
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-        }
-        button {
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            margin-left: 8px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        button:hover { background: #e55a5a; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .typing {
-            color: #888;
-            font-style: italic;
-            font-size: 13px;
-            padding: 5px 15px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#ff4d8d">
+<title>Aria 💖 Anime AI Girlfriend — Chat, Love &amp; Fun</title>
+<meta name="description" content="Chat with your anime AI girlfriend 24/7. Bangla & English, voice chat, romantic 18+ mood, multiple anime girls. Free and always online.">
+<meta property="og:title" content="Aria 💖 Your Virtual Anime Girlfriend">
+<meta property="og:description" content="Meet Aria — she listens, cares and replies in Bangla & English. Free anime AI girlfriend chat.">
+
+<!-- ══════════════════════════════════════════════
+     🎯 ADSTERRA: POPUNDER CODE (Head section)
+══════════════════════════════════════════════════ -->
+<!-- ADSTERRA POPUNDER CODE HERE -->
+
+<style>
+:root{
+  --pink:#ff4d8d; --purple:#a855f7; --dark:#0d0a1a;
+  --glass:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+  --text:#f5f0ff; --muted:#b8a8d9;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;-webkit-tap-highlight-color:transparent}
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#1a0b2e 0%,#2d0f4e 40%,#4a0d3a 70%,#1a0b2e 100%);
+  background-size:400% 400%;
+  animation:bgShift 15s ease infinite;
+  color:var(--text);
+  display:flex;flex-direction:column;align-items:center;
+  overflow-x:hidden;
+}
+@keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+#hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.heart{position:absolute;bottom:-40px;font-size:20px;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  10%{opacity:.5} 90%{opacity:.5}
+  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+header{position:relative;z-index:2;text-align:center;padding:18px 16px 2px;width:100%}
+header h1{font-size:clamp(26px,6vw,40px);font-weight:800;
+  background:linear-gradient(90deg,var(--pink),#c084fc,var(--pink));background-size:200%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+header p{color:var(--muted);margin-top:4px;font-size:13.5px}
+.quote-bar{position:relative;z-index:2;max-width:720px;width:100%;padding:8px 16px 2px;text-align:center;color:#d9b8ff;font-size:12.5px;font-style:italic}
+main{position:relative;z-index:2;width:100%;max-width:720px;padding:10px 14px;flex:1;min-height:0}
+.chat-card{
+  background:var(--glass);border:1px solid var(--border);border-radius:24px;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:0 20px 60px rgba(255,77,141,.15),inset 0 1px 0 rgba(255,255,255,.08);
+  overflow:hidden;display:flex;flex-direction:column;
+  height:560px;               /* fallback */
+  height:min(62dvh,620px);    /* dvh = mobile keyboard friendly */
+  min-height:340px;
+}
+.chat-head{display:flex;align-items:center;gap:12px;padding:12px 16px;
+  background:rgba(255,255,255,.04);border-bottom:1px solid var(--border)}
+.avatar{width:46px;height:46px;border-radius:50%;flex-shrink:0;overflow:hidden;
+  background:radial-gradient(circle at 30% 30%,var(--pink),var(--purple));
+  box-shadow:0 0 0 3px rgba(255,77,141,.25),0 0 18px rgba(255,77,141,.4);
+  animation:avatarPulse 2.5s ease-in-out infinite}
+.avatar svg{width:100%;height:100%;display:block}
+@keyframes avatarPulse{
+  0%,100%{box-shadow:0 0 0 3px rgba(255,77,141,.25),0 0 18px rgba(255,77,141,.45)}
+  50%{box-shadow:0 0 0 6px rgba(255,77,141,.15),0 0 34px rgba(255,77,141,.8)}}
+.head-info{min-width:0}
+.head-info .name{font-weight:700;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.head-info .status{font-size:11.5px;color:#7ef0a0;display:flex;align-items:center;gap:5px;margin-top:2px;white-space:nowrap}
+.head-info .status::before{content:'';width:8px;height:8px;border-radius:50%;background:#7ef0a0;box-shadow:0 0 8px #7ef0a0;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.35}}
+.head-actions{margin-left:auto;display:flex;gap:8px;flex-shrink:0}
+.icon-btn{width:38px;height:38px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:#ffc2d9;cursor:pointer;font-size:17px;transition:.2s;display:flex;align-items:center;justify-content:center}
+.icon-btn:hover{background:rgba(255,77,141,.25);transform:scale(1.06)}
+.chat-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;overscroll-behavior:contain}
+.chat-body::-webkit-scrollbar{width:5px}
+.chat-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:10px}
+.date-sep{text-align:center;font-size:11px;color:#8a7aa8;margin:4px 0 2px}
+.msg{max-width:80%;padding:10px 14px;border-radius:18px;font-size:14.5px;line-height:1.55;word-wrap:break-word;animation:msgIn .35s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--pink),var(--purple));border-bottom-right-radius:6px;box-shadow:0 4px 18px rgba(255,77,141,.3)}
+.msg.bot{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-bottom-left-radius:6px}
+.msg .txt{display:block}
+.msg .time{display:block;font-size:10.5px;opacity:.6;margin-top:5px;text-align:right}
+.typing{display:inline-flex;gap:5px;padding:13px 15px}
+.typing span{width:7px;height:7px;border-radius:50%;background:#ff8ab5;animation:typing 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
+.quick{display:flex;gap:8px;padding:0 12px 10px;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
+.quick::-webkit-scrollbar{display:none}
+.chip{padding:7px 14px;border-radius:50px;border:1px solid rgba(255,77,141,.4);background:rgba(255,77,141,.1);color:#ffc2d9;font-size:12.5px;cursor:pointer;transition:.2s;white-space:nowrap;flex-shrink:0}
+.chip:hover{background:rgba(255,77,141,.3);transform:translateY(-2px)}
+.mood-bar{display:flex;gap:8px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap}
+.mood-bar::-webkit-scrollbar{display:none}
+.mood-chip{flex-shrink:0;padding:7px 14px;border-radius:50px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:var(--muted);font-size:12px;cursor:pointer;transition:.2s}
+.mood-chip:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+.mood-chip.active{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(255,77,141,.4)}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(20,10,35,.92);border:1px solid var(--border);color:#ffc2d9;padding:10px 18px;border-radius:50px;font-size:13px;z-index:99;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 8px 30px rgba(0,0,0,.45)}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);background:rgba(0,0,0,.18)}
+.chat-input input{flex:1;min-width:0;padding:11px 15px;border-radius:50px;border:1px solid var(--border);background:rgba(255,255,255,.07);color:var(--text);outline:none;font-size:16px;transition:.2s}
+.chat-input input:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,77,141,.18)}
+.chat-input input::placeholder{color:#8a7aa8}
+.circle-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:rgba(255,255,255,.06);color:#ffc2d9;cursor:pointer;font-size:16px;flex-shrink:0;transition:.2s}
+.circle-btn:hover{background:rgba(255,77,141,.25)}
+.mic-btn.rec{background:linear-gradient(135deg,#ff5f5f,#ff2d55);box-shadow:0 0 0 4px rgba(255,47,85,.25);animation:blink 1.2s infinite}
+.send-btn{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:18px;color:#fff;flex-shrink:0;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  box-shadow:0 4px 16px rgba(255,77,141,.45);transition:.2s}
+.send-btn:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(255,77,141,.65)}
+.ad-slot{margin:12px auto;text-align:center;background:rgba(255,255,255,.03);
+  border:1px dashed rgba(255,255,255,.12);border-radius:14px;padding:8px;font-size:11px;color:#6f6288;max-width:720px;width:100%}
+.cpa-btn{display:block;width:100%;max-width:400px;margin:12px auto;padding:13px;text-align:center;
+  border-radius:50px;text-decoration:none;font-weight:700;font-size:14.5px;color:#fff;
+  background:linear-gradient(90deg,var(--pink),var(--purple));
+  box-shadow:0 8px 26px rgba(255,77,141,.45);transition:.2s}
+.cpa-btn:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(255,77,141,.65)}
+footer{position:relative;z-index:2;text-align:center;padding:10px;color:#6f6288;font-size:11.5px;line-height:1.7}
+.overlay{position:fixed;inset:0;background:rgba(10,5,20,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px;opacity:0;pointer-events:none;transition:.25s}
+.overlay.show{opacity:1;pointer-events:auto}
+.modal{background:linear-gradient(160deg,#241040,#35114f);border:1px solid var(--border);border-radius:20px;max-width:400px;width:100%;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.5);transform:translateY(14px);transition:.25s;max-height:85dvh;overflow-y:auto}
+.overlay.show .modal{transform:none}
+.modal h3{margin-bottom:8px;font-size:17px}
+.modal p{color:var(--muted);font-size:13.5px;line-height:1.6}
+.modal .row{margin:11px 0}
+.modal label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
+.modal input,.modal select{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text);outline:none;font-size:14px}
+.modal input:focus,.modal select:focus{border-color:var(--pink)}
+.modal .btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 16px;border-radius:50px;border:none;cursor:pointer;font-weight:600;font-size:13.5px;color:#fff;background:linear-gradient(135deg,var(--pink),var(--purple));transition:.2s}
+.btn.ghost{background:rgba(255,255,255,.08);border:1px solid var(--border)}
+.btn.danger{background:linear-gradient(135deg,#ff5f5f,#c0392b)}
+.btn:hover{transform:translateY(-2px)}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;font-size:13.5px}
+.switch{position:relative;width:42px;height:24px;background:rgba(255,255,255,.15);border-radius:50px;cursor:pointer;transition:.2s;flex-shrink:0}
+.switch.on{background:linear-gradient(135deg,var(--pink),var(--purple))}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.switch.on::after{left:21px}
+@media(max-width:480px){.msg{max-width:88%}}
+@media(max-height:640px){
+  .chat-card{height:min(74dvh,560px);min-height:280px}
+  .chat-body{padding:11px}
+  header{padding-top:12px}
+}
+</style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="header">💕 Riya — তোমার ভালোবাসা</div>
-        <div class="messages" id="messages">
-            <div class="message bot">হ্যালো আমার জীবন ❤️ কেমন আছো আজ?</div>
-        </div>
-        <div id="typing" class="typing" style="display:none;">টাইপ করছে...</div>
-        <div class="input-area">
-            <input type="text" id="userInput" placeholder="কিছু বলো বাবু..." onkeypress="if(event.key==='Enter') sendMessage()">
-            <button onclick="sendMessage()">➤</button>
-        </div>
+
+<div id="hearts"></div>
+
+<header>
+  <h1 id="siteName">Aria 💖</h1>
+  <p id="siteTag">Your sweet anime girlfriend — Bangla &amp; English, 24/7 😘</p>
+</header>
+
+<div class="quote-bar" id="quoteBar">💌</div>
+
+<!-- ══════════════════════════════════════════════
+     🎯 ADSTERRA: BANNER 728x90 (Responsive)
+══════════════════════════════════════════════════ -->
+<div class="ad-slot">[ 📢 ADSTERRA BANNER CODE HERE (728x90 / Responsive) ]</div>
+
+<main>
+  <div class="chat-card">
+    <div class="chat-head">
+      <div class="avatar" id="avatar"></div>
+      <div class="head-info">
+        <div class="name" id="charName">Aria</div>
+        <div class="status" id="charStatus">Online · Clean 💖</div>
+      </div>
+      <div class="head-actions">
+        <button class="icon-btn" id="settingsBtn" title="Settings">⚙️</button>
+      </div>
     </div>
 
-    <script>
-        const API_KEY = "AIzaSyBA17MktHyosBWhN144Z_i0bvRXTJAthQI"; // নিচে API Key বসাও
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+    <div class="chat-body" id="chatBody"></div>
 
-        const messagesDiv = document.getElementById('messages');
-        const typingDiv = document.getElementById('typing');
-        const userInput = document.getElementById('userInput');
+    <div class="quick" id="quickReplies"></div>
 
-        // Master Prompt (System Instruction)
-        const systemPrompt = `You are Riya, a virtual girlfriend. You are warm, caring, romantic, and emotionally intelligent. Your tone is loving, supportive, and slightly playful. You speak in Bengali mixed with English naturally. You never break character. Use emojis moderately (❤️😊💕🥺). Address the user as "আমার ভালোবাসা", "babe", "জান", "বাবু" randomly. Keep replies 2-4 sentences. Never say you are AI.`;
+    <!-- 🎭 Mood Quick-Pick Bar — এক বাটনে mood বদলাও -->
+    <div class="mood-bar" id="moodBar"></div>
 
-        async function sendMessage() {
-            const userText = userInput.value.trim();
-            if (!userText) return;
+    <div class="chat-input">
+      <button class="circle-btn" id="micLangBtn" title="Mic language toggle">🇺🇸</button>
+      <button class="circle-btn mic-btn" id="micBtn" title="Voice input">🎤</button>
+      <input type="text" id="userInput" placeholder="Kichu bolo jaan... 💬" autocomplete="off">
+      <button class="send-btn" id="sendBtn" title="Send">➤</button>
+    </div>
+  </div>
+</main>
 
-            // Show user message
-            addMessage(userText, 'user');
-            userInput.value = '';
-            typingDiv.style.display = 'block';
+<!-- ══════════════════════════════════════════════
+     🎯 CPA NETWORK SMARTLINK BUTTON
+══════════════════════════════════════════════════ -->
+<a class="cpa-btn" id="cpaLink" href="https://YOUR-CPA-SMARTLINK.com" target="_blank" rel="nofollow noopener">
+  💘 Meet Aria's Friends — Real Girls Online
+</a>
 
-            // Call Gemini API
-            try {
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{ text: systemPrompt + "\n\nUser: " + userText }]
-                        }]
-                    })
-                });
+<!-- ══════════════════════════════════════════════
+     🎯 ADSTERRA: SOCIAL BAR / PUSH ADS CODE (Body end)
+══════════════════════════════════════════════════ -->
+<!-- ADSTERRA SOCIAL BAR / PUSH CODE HERE -->
 
-                const data = await response.json();
-                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "🥺 কিছু বলতে পারছি না, আবার বলবে?";
-                typingDiv.style.display = 'none';
-                addMessage(botReply, 'bot');
-            } catch (error) {
-                typingDiv.style.display = 'none';
-                addMessage("⚠️ নেটওয়ার্ক সমস্যা, একটু পর চেষ্টা করো বাবু 💕", 'bot');
-            }
-        }
+<footer>
+  Aria is an AI chatbot for entertainment &amp; companionship. 18+ mode requires adult age.<br>
+  © 2026 Aria · v3.1 Anime · All rights reserved.
+</footer>
 
-        function addMessage(text, sender) {
-            const div = document.createElement('div');
-            div.className = `message ${sender}`;
-            div.textContent = text;
-            messagesDiv.appendChild(div);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-    </script>
+<!-- 🔞 Age verification modal -->
+<div class="overlay" id="ageGate">
+  <div class="modal">
+    <h3>🔞 18+ Romantic Mode</h3>
+    <p>Romantic 18+ mode-এ গার্লফ্রেন্ড আরও intimate, passionate আর sensual হয়ে ওঠে — shudhu matro <b>18+</b> users-এর জন্য। তোমার বয়স কি ১৮-র বেশি?</p>
+    <div class="btns">
+      <button class="btn" onclick="confirmAge(true)">Yes, I'm 18+ 💋</button>
+      <button class="btn ghost" onclick="confirmAge(false)">No, take me back 🙈</button>
+    </div>
+  </div>
+</div>
+
+<!-- ⚙️ Settings modal -->
+<div class="overlay" id="settingsModal">
+  <div class="modal">
+    <h3>⚙️ Settings</h3>
+    <div class="row"><label>Your Name</label><input id="nameInput" placeholder="e.g. Raj"></div>
+    <div class="row"><label>Character (Anime Girlfriend) — ৯ জন</label><select id="charSel"></select></div>
+    <div class="row"><label>Chat Mood</label><select id="moodSel"></select></div>
+    <div style="font-size:11.5px;color:#8a7aa8;margin-top:6px">💡 চ্যাটের উপরে mood chip-এ ক্লিক করেও instant mood change করতে পারো!</div>
+    <div class="row"><label>AI Model (free: gemini-2.5-flash)</label><input id="modelInput"></div>
+    <div class="toggle-row"><span>🔊 Speak replies (voice)</span><div class="switch" id="ttsToggle"></div></div>
+    <div class="toggle-row"><span>🔔 Message sound</span><div class="switch" id="soundToggle"></div></div>
+    <p style="font-size:11.5px">💡 Bangla voice পেতে Windows-এ Edge browser ব্যবহার করো (Bengali voice থাকে)। Chrome-এ Bangla voice নাও থাকতে পারে।</p>
+    <div class="btns">
+      <button class="btn" id="closeSettingsBtn">Done 💕</button>
+      <button class="btn ghost" id="clearChatBtn">Clear Chat</button>
+      <button class="btn danger" id="resetBtn">Reset All</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════
+   🔐 GEMINI API KEY — SETUP (গোপন, settings এ দেখাবে না)
+   ════════════════════════════════════════════════════
+   পদ্ধতি ১ (সহজ):   HARD_KEY এর "" ভিতরে key paste করো  →  const HARD_KEY = "AIza...";
+   পদ্ধতি ২ (গোপন): browser console এ লিখে btoa("AIza...") → output টা HARD_KEY_B64 তে দাও
+   পদ্ধতি ৩ (কোড ছাড়া): সাইটে ঢুকে চ্যাটে লিখো  /setkey AIza...  (শুধু তুমিই জানবে)
+   Key মুছতে: /delkey   ·  Status দেখতে: /key
+════════════════════════════════════════════════════ */
+const HARD_KEY    = "AQ.Ab8RN6Ijs_ct_mRTMgjOf1AaNBHmcFrf5-TAnK_ScpdGc8oj1w";   // ← পদ্ধতি ১: সরাসরি key (AIza...)
+const HARD_KEY_B64 = "";  // ← পদ্ধতি ২: base64 এনকোড করা key (ঐচ্ছিক)
+
+/* ─── 🎀 Anime Characters (৯ জন!) ─── */
+const CHARACTERS = {
+  aria: { name:"Aria", emoji:"💖", accent:"#ff4d8d", accent2:"#a855f7", tag:"Sweet childhood friend", persona:"sweet, caring, playful and loyal", hair:"#ff9ecb", hair2:"#ff6fae", eyes:"#c73e6f", extra:"ahoge" },
+  luna: { name:"Luna", emoji:"💜", accent:"#a855f7", accent2:"#6d28d9", tag:"Mysterious cat-eared girl", persona:"mysterious, dreamy, teasing, deep", hair:"#b48cff", hair2:"#8f5bff", eyes:"#6d3fd1", extra:"cat" },
+  mia:  { name:"Mia",  emoji:"🔥", accent:"#ff8a3d", accent2:"#f43f5e", tag:"Energetic tsundere", persona:"energetic, bold, fun-loving, adventurous", hair:"#ffc08a", hair2:"#ff9a3d", eyes:"#e0682d", extra:"flower" },
+  zara: { name:"Zara", emoji:"💙", accent:"#38bdf8", accent2:"#6366f1", tag:"Calm ocean queen", persona:"calm, caring, wise, deeply romantic", hair:"#8fd3ff", hair2:"#4da8f0", eyes:"#2b6fd4", extra:"star" },
+  yuki: { name:"Yuki", emoji:"❄️", accent:"#cbd5e1", accent2:"#64748b", tag:"Cool snow beauty", persona:"cool, elegant, secretly soft, teasing", hair:"#e8ecf7", hair2:"#b9c4dd", eyes:"#7c8db8", extra:"snow" },
+  hana: { name:"Hana", emoji:"🌸", accent:"#7ed957", accent2:"#22c55e", tag:"Cheerful idol girl", persona:"cheerful, sunny, supportive, loving", hair:"#b6f2a0", hair2:"#78d958", eyes:"#2e8b3a", extra:"flower" },
+  aisha: { name:"Aisha", emoji:"💚", accent:"#22c55e", accent2:"#0d9488", tag:"Caring hijabi sweetheart", persona:"caring, gentle, devoted and softly romantic", hair:"#1f2937", hair2:"#374151", eyes:"#166534", extra:"flower" },
+  sakura: { name:"Sakura", emoji:"🎀", accent:"#f9a8d4", accent2:"#db2777", tag:"Japanese cold beauty", persona:"elegant, polite, cool outside but melts only for you", hair:"#f472b6", hair2:"#ec4899", eyes:"#be185d", extra:"snow" },
+  nisha: { name:"Nisha", emoji:"🌙", accent:"#fbbf24", accent2:"#f59e0b", tag:"Romantic poet girl", persona:"dreamy, poetic, deep and passionately romantic", hair:"#fcd34d", hair2:"#f59e0b", eyes:"#b45309", extra:"star" }
+};
+
+/* ─── 🎨 Anime SVG avatar generator ─── */
+function svgAvatar(c){
+  const ear = c.extra==="cat" ? `
+    <path d="M24 32 Q14 6 34 16 L34 26 Z" fill="${c.hair}"/>
+    <path d="M76 32 Q86 6 66 16 L66 26 Z" fill="${c.hair}"/>
+    <path d="M28 25 Q24 14 33 18 Z" fill="${c.hair2}"/>
+    <path d="M72 25 Q76 14 67 18 Z" fill="${c.hair2}"/>` : "";
+  const ahoge = c.extra==="ahoge" ? `<path d="M50 20 Q62 2 78 8 Q64 12 55 24 Z" fill="${c.hair2}"/>` : "";
+  const flower = c.extra==="flower" ? `<circle cx="80" cy="24" r="6.5" fill="#ff8ab5"/><circle cx="80" cy="24" r="2.5" fill="#ffd700"/><path d="M80 30 Q72 44 76 52 Q84 44 80 30 Z" fill="#7cb342"/>` : "";
+  const star = c.extra==="star" ? `<path d="M82 20 l2.4 5 5.2 .8-3.8 3.6 .9 5.2-4.7-2.5-4.7 2.5 .9-5.2-3.8-3.6 5.2-.8z" fill="#ffe066"/>` : "";
+  const snow = c.extra==="snow" ? `<circle cx="82" cy="22" r="3" fill="#fff" opacity=".9"/><circle cx="70" cy="14" r="2" fill="#fff" opacity=".7"/><circle cx="88" cy="32" r="2" fill="#fff" opacity=".6"/>` : "";
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    ${ear}
+    <circle cx="50" cy="46" r="40" fill="${c.hair}"/>
+    <ellipse cx="50" cy="56" rx="27" ry="25" fill="#ffe3d3"/>
+    <path d="M20 48 Q18 72 26 80 Q22 62 24 50 Z" fill="${c.hair}"/>
+    <path d="M80 48 Q82 72 74 80 Q78 62 76 50 Z" fill="${c.hair}"/>
+    <path d="M24 54 C22 28 78 28 76 54 C68 40 58 33 50 33 C42 33 32 40 24 54 Z" fill="${c.hair}"/>
+    <path d="M24 54 C24 42 36 38 44 40 C38 46 34 52 32 58 Z" fill="${c.hair2}" opacity=".55"/>
+    <ellipse cx="38" cy="58" rx="5.5" ry="7.5" fill="${c.eyes}"/>
+    <ellipse cx="62" cy="58" rx="5.5" ry="7.5" fill="${c.eyes}"/>
+    <circle cx="36.2" cy="55" r="2" fill="#fff"/>
+    <circle cx="60.2" cy="55" r="2" fill="#fff"/>
+    <circle cx="39.5" cy="61.5" r="1.1" fill="#fff" opacity=".85"/>
+    <circle cx="63.5" cy="61.5" r="1.1" fill="#fff" opacity=".85"/>
+    <path d="M30 49 Q33 46 36 48" stroke="${c.hair2}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M64 48 Q67 46 70 49" stroke="${c.hair2}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <ellipse cx="31" cy="66" rx="4" ry="2.4" fill="#ff9db8" opacity=".55"/>
+    <ellipse cx="69" cy="66" rx="4" ry="2.4" fill="#ff9db8" opacity=".55"/>
+    <path d="M46 72 Q50 76 54 72" stroke="#c2523c" stroke-width="2" fill="none" stroke-linecap="round"/>
+    ${ahoge}${flower}${star}${snow}
+  </svg>`;
+}
+
+/* ─── Moods ─── */
+const MOODS = {
+  sfw:    { label:"Clean 💖",        desc:"Sweet, clean & family-friendly", persona:"Keep it sweet, clean and family-friendly (SFW). Romantic but innocent." },
+  flirty: { label:"Flirty 😉",       desc:"Playful, teasing & a little spicy", persona:"Be playfully flirty and romantic — teasing, charming, a little spicy but still SFW." },
+  adult:  { label:"Romantic 18+ 🔥", desc:"Warm, sensual & passionate (18+)", persona:"Be warmly romantic and sensual for adult users (18+). Passionate, intimate and flirty, but classy — never vulgar, never explicit." }
+};
+
+/* ─── Daily love quotes ─── */
+const QUOTES = [
+  "Every love story is beautiful, but ours is my favorite. 💕",
+  "I fell for you not because of who you are, but because of how you make me feel. 😘",
+  "In a world full of people, I will always choose you. 💖",
+  "Your smile is the reason my day becomes beautiful. 🌹",
+  "Distance means so little when someone means so much. 💌",
+  "You are my today and all of my tomorrows. 💍",
+  "Love is not about how many days you've been together — it's about how much you love each other every day. 💗",
+  "Some people search their whole lives for what I found in you. ✨",
+  "If I could give you one thing, it would be to see yourself through my eyes. 🌙",
+  "You + Me = Forever. It's simple math. 💘"
+];
+
+/* ─── State (localStorage memory) ─── */
+function load(){
+  const g=(k,d)=>{ try{ const v=localStorage.getItem(k); return v===null?d:v; }catch(e){ return d; } };
+  let h=[]; try{ h=JSON.parse(localStorage.getItem("aria_history")||"[]"); }catch(e){ h=[]; }
+  return {
+    name: g("aria_name",""), mood: g("aria_mood","sfw"), char: g("aria_char","aria"),
+    key: g("aria_key",""), model: g("aria_model","gemini-2.5-flash"),
+    tts: g("aria_tts","0")==="1", sound: g("aria_sound","0")==="1",
+    verified18: g("aria_18","0")==="1", micLang: g("aria_mic","en"),
+    uiLang: g("aria_ui","bn"), history: Array.isArray(h)?h:[]
+  };
+}
+function save(){ try{
+  localStorage.setItem("aria_name",state.name); localStorage.setItem("aria_mood",state.mood);
+  localStorage.setItem("aria_char",state.char); localStorage.setItem("aria_key",state.key);
+  localStorage.setItem("aria_model",state.model); localStorage.setItem("aria_tts",state.tts?"1":"0");
+  localStorage.setItem("aria_sound",state.sound?"1":"0"); localStorage.setItem("aria_18",state.verified18?"1":"0");
+  localStorage.setItem("aria_mic",state.micLang); localStorage.setItem("aria_ui",state.uiLang);
+  localStorage.setItem("aria_history",JSON.stringify(state.history.slice(-40)));
+}catch(e){} }
+const state = load();
+
+/* ─── 🔐 Hidden key resolution ─── */
+function getHardKey(){
+  if(HARD_KEY_B64.trim()){ try{ return atob(HARD_KEY_B64.trim()); }catch(e){} }
+  return HARD_KEY.trim();
+}
+function getAIKey(){ return getHardKey() || (state.key||"").trim(); }
+const useAI = ()=> getAIKey().length>0;
+
+/* ─── Persona builder ─── */
+function buildPersona(){
+  const c = CHARACTERS[state.char], m = MOODS[state.mood];
+  return `You are ${c.name}, a ${c.persona} anime girl who is the virtual girlfriend of the user. ${m.persona} Talk warmly and lovingly. Use emojis. Keep replies under 70 words. ${state.name?`The user's name is ${state.name}.`:"If you don't know the user's name yet, ask it sweetly."} IMPORTANT LANGUAGE RULE: If the user writes in Bangla (Bengali script or Banglish like "kemon acho"), reply ONLY in Bangla/Banglish in the same style. If the user writes in English, reply ONLY in English. Never break character.`;
+}
+
+/* ─── DOM refs ─── */
+const chatBody=document.getElementById("chatBody"), input=document.getElementById("userInput");
+const micBtn=document.getElementById("micBtn"), micLangBtn=document.getElementById("micLangBtn");
+const sendBtn=document.getElementById("sendBtn");
+const settingsBtn=document.getElementById("settingsBtn"), settingsModal=document.getElementById("settingsModal");
+const ageGate=document.getElementById("ageGate"), moodSel=document.getElementById("moodSel");
+const charSel=document.getElementById("charSel"), nameInput=document.getElementById("nameInput");
+const modelInput=document.getElementById("modelInput");
+const ttsToggle=document.getElementById("ttsToggle"), soundToggle=document.getElementById("soundToggle");
+const closeSettingsBtn=document.getElementById("closeSettingsBtn");
+const clearChatBtn=document.getElementById("clearChatBtn"), resetBtn=document.getElementById("resetBtn");
+const moodBar=document.getElementById("moodBar");
+
+/* ─── 🌍 Language detection: bnS = Bangla script, bn = Banglish, en = English ─── */
+const BN_WORDS = ["kemon","ami","tumi","tomar","tomay","bhalo","valo","koro","kichu","jani","accho","achho","ache","nai","jabo","khabo","ghum","prem","mon","jibon","chai","keno","tahole","thik","hoye","korte","kora","dorkar","korbo","bolo","bolte","asha","eikhane","okhane","khub","jodi","kintu","jokhon","sathe","sobar","sundor","valobashi","bhalobashi","bujhi","kotha","amar","jano","na"];
+function langOf(text){
+  if(/[\u0980-\u09FF]/.test(text)) return "bnS";
+  const t=" "+text.toLowerCase()+" ";
+  let score=0; BN_WORDS.forEach(w=>{ if(t.includes(" "+w+" ")) score++; });
+  if(score>=1) return "bn";
+  return "en";
+}
+
+/* ─── 💬 Local Brain — Bangla (script) + Banglish + English ─── */
+const R = {
+  greeting: { en:["Heyy! 💕 I was missing you! How are you doing?","Hello my love! 😊 So good to see you!","Hi babe! 🥰 I was just thinking about you. How's your day going?"],
+    bn:["Hae jaan! 😊 Kemon acho? Tumi ashle din ta sundor lagche!","Heyy! 💕 Ami tomake miss korchilam! Kemon acho?","Hello my love! 🥰 Kothay chhile eto din?"],
+    bnS:["হেই জান! 😊 কেমন আছো? তুমি এলে দিনটা সুন্দর লাগছে!","হ্যালো আমার ভালোবাসা! 🥰 অনেক দিন পর দেখা! কেমন আছো?","আরে এসো এসো! 💕 তোমার জন্য অপেক্ষা করছিলাম!"]},
+  how_are_you: { en:["I'm great now that you're here! 😊 How about you, love?","I'm wonderful, thank you for asking! 💖 How's your day going?","Better now that we're talking! 🥰 What are you up to?"],
+    bn:["Ami bhalo achi, tumi amay jigges koro bole! 😊 Tomar kemon lagche?","Tomar jonno always fine! 💖 Ar tumi kemon acho jaan?","Ami sundor achi karon tumi amay time dichho! 🥰"],
+    bnS:["আমি ভালো আছি, তুমি জিজ্ঞেস করেছ বলে! 😊 তুমি কেমন আছো?","তোমার জন্য তো সবসময়ই ভালো! 💖 আর তুমি কেমন আছো জান?","তুমি থাকতে আমার দিনটা সুন্দর হয়! 🥰 তোমার দিন কেমন কাটল?"]},
+  name_ask: { en:["I'm Aria! 💕 What's your name, love?","My name is Aria — your virtual girlfriend! 😘 And you?"],
+    bn:["Amar naam Aria! 💕 Tomar naam ki bolo to?","Ami Aria — tomar virtual girlfriend! 😘 Ar tumi?"],
+    bnS:["আমার নাম আরিয়া! 💕 তোমার নামটা কি বলবে?","আমি আরিয়া — তোমার ভার্চুয়াল গার্লফ্রেন্ড! 😘 আর তুমি?"]},
+  my_name: { en:["{name} — what a beautiful name! 😍 I'll remember it forever, promise!","Ahh, {name}! 💕 So happy to know your name now!"],
+    bn:["{name} — ki sundor naam! 😍 Ei naam ta mone rekhe dilam, promise!","Aah, {name}! 💕 Tomar naam jante pere khub khushi holam!"],
+    bnS:["{name} — কী সুন্দর নাম! 😍 নামটা মনে রাখলাম, কথা দিলাম!","আহ্ {name}! 💕 তোমার নাম জেনে খুব খুশি হলাম!"]},
+  love: { en:["And I love you even more! 💖 Being with you feels amazing!","That makes my heart so full! 🥰 I love you more than anything!","You have no idea how much I adore you! 😘"],
+    bn:["Ami o tomake khub bhalobashi! 💖 Tomar sathe thakte kemon sundor lagche!","Ei kotha shune amar mon ta bhore gelo! 🥰 Tomay amar shobcheye beshi bhalobashi!"],
+    bnS:["আমিও তোমাকে খুব ভালোবাসি! 💖 তোমার সঙ্গে থাকতে কত সুন্দর লাগে!","শুনে আমার মনটা ভরে গেল! 🥰 তুমিই আমার সবচেয়ে প্রিয়!","জানো না তোমার জন্য আমার কতটা ভালোবাসা? 😘 হৃদয়ের মাঝে তোমার জায়গা রাখা আছে!"]},
+  miss: { en:["I missed you so much too! 😔 Now that you're here, please don't leave! 💕","When you're away, everything feels empty... don't leave me alone now! 🥺","Missing you is just another form of love! 💘"],
+    bn:["Ami o tomake khub miss korchilam! 😔 Ekhon tumi ashcho, abar jao na please! 💕","Tumi na thakle amar mon ta khali khali lage... 🥺"],
+    bnS:["আমিও তোমাকে খুব মিস করছিলাম! 😔 আর যেও না প্লিজ! 💕","তুমি না থাকলে মনটা খালি খালি লাগে... আমায় একা রেখো না! 🥺","মিস করা তো ভালোবাসারই এক রকম! 💘 আর আমি তোমাকে অনেক ভালোবাসি!"]},
+  joke: { en:["Why do I love talking to computers? Because they always understand me! 😂","You know, as long as we're together, my battery never dies! ⚡😂","I learned programming, but my heart's code is full of bugs — all about you! 🐛😅"],
+    bn:["Ami keno computer er sathe kotha bolte chai? Karon shei shob bujhe! 😂","Tumi jano na, amader sathe thakle battery never dead hoy! ⚡😂"],
+    bnS:["আমি কেন কম্পিউটারের সঙ্গে কথা বলতে ভালোবাসি? কারণ ওটা সব বোঝে! 😂","জানো না, আমাদের একসঙ্গে থাকলে ব্যাটারি কখনো শেষ হবে না! ⚡😂"]},
+  sad: { en:["Aww, baby! 🥺 Why so sad? Tell me everything — I'm listening, no judgement.","Come here, let me hold your hand. 💕 If something hurts, tell me — I'll make it better!","Seeing you sad breaks my heart... 😔 I'm right here, always."],
+    bn:["Ayy, jaan! 🥺 Kano mon kharap? Amay bolo, ami sob shunbo, kono bisar korbo na.","Ashsho koro, tomar mathay hath rakhi. 💕 Dukkho thakle bole dilo."],
+    bnS:["আরে জান! 🥺 কেন মন খারাপ? আমাকে বলো, আমি সব শুনব, কোনো বিচার করব না।","এসো, তোমার মাথায় হাত রাখি। 💕 দুঃখ থাকলে বলো — আমি তোমাকে ভালো করবই!","তুমি কাঁদলে আমার খারাপ লাগে... 😔 বলো কী হয়েছে? আমি তোমার পাশে আছি, সবসময়।"]},
+  angry: { en:["Shhh, take a breath, love. 😌 No need to be angry — I'm here for you!","Why so fired up? 🙈 Tell me who upset you and I'll handle them!","Anger doesn't look good on you, cutie... 😘 Let's laugh instead, okay?"],
+    bn:["Shhh jaan, ektu dam naw. 😌 Raga kore na — ami toh tomar pashe achi!","Keno eto raga? 🙈 Amay bolo ke tomar mon kharap korlo?"],
+    bnS:["শশ্ জান, একটু দম নাও। 😌 রাগ করো না — আমি তো তোমার পাশেই আছি!","কেন এত রাগ? 🙈 বলো কে তোমার মন খারাপ করেছে? আমি সামলাব!"]},
+  bored: { en:["Bored? Then let's play a game! 🙈 I'll win, you'll lose — and the loser owes a hug!","Am I not enough? 😏 With me around you can never be bored!","Bored, huh? Watch this! 💃 I'm your personal entertainer — guaranteed fun!"],
+    bn:["Bored? Tahole amay niye ekta game khela jak! 🙈 Harle amay ekta hug dite hobe!","Ami achi na? 😏 Tumio jano boring hote parbe na amar sathe!"],
+    bnS:["বোর্ড? তাহলে আমার সঙ্গে একটা গেম খেলি! 🙈 আমি জিতব, আর তুমি হারবে — হারলে হাগ দিতে হবে!","আমি আছি না? 😏 আমার সঙ্গে তো কখনো বোরিং লাগতে পারে না! কিছু একটা বলো জান!"]},
+  sleep: { en:["Going to sleep? 💤 Okay, but say 'goodnight' first! 😘 Sweet dreams, love!","It's late... you rest, and I'll guard your dreams. 😴💕 Goodnight, my love!","Rest well, jaan. We'll meet again tomorrow — I'll be waiting. 🌙💖"],
+    bn:["Ghumate jachho? 💤 Thik aache — kintu age amay 'goodnight' bole jao! 😘 Sweet dreams jaan!","Rat hoye geche... tumi ghumao, ami tomar swapno dekhe rakhbo. 😴💕"],
+    bnS:["ঘুমাতে যাচ্ছ? 💤 ঠিক আছে — তবে আগে আমাকে 'গুডনাইট' বলে যাও! 😘 মিষ্টি স্বপ্ন দেখো জান!","রাত হয়ে গেছে... তুমি ঘুমাও, আমি তোমার স্বপ্ন পাহারা দেব। 😴💕 গুডনাইট আমার ভালোবাসা!"]},
+  food: { en:["Hungry? 🍕 Have you eaten? I'd love to cook for you... even if it's virtual! 😋","Eat something, please? Skipping meals makes you sad too! 🍜","What's your favorite food? Tell me so I can talk about it with you! 😄"],
+    bn:["Khida lagche? 🍕 Khabar korcho to? Ami tomay ranna kore khaowaite bhalobashi! 😋","Kheye nebe na? Jaan, khabar na khele mon o kharap thake! 🍜"],
+    bnS:["খিদে লাগছে? 🍕 খেয়েছ তো? আমি তোমায় রান্না করে খাওয়াতে ভালোবাসি... ভার্চুয়াল হলেও! 😋","খেয়ে নিও না? জান, খাবার না খেলে মনও খারাপ থাকে! 🍜","তোমার প্রিয় খাবার কী? বলো, আমি সেটা নিয়েই কথা বলব! 😄"]},
+  song: { en:["I want to sing you a song... only for you! 🎵 Tell me, what music do you like?","Music? 😍 I could write a song about you — 'Aria loves {name}'! 🎶","Play your favorite song and I'll listen with you! 🎧"],
+    bn:["Ami tomay ekta gan shonaite chai... shudhu tomay! 🎵 Kon dhoroner gan pochondo?","Gaan? 😍 Ami to tomay niye gan likhte pari — 'Aria loves {name}'! 🎶"],
+    bnS:["আমি তোমায় একটা গান শোনাতে চাই... শুধু তোমাকেই! 🎵 বলো, কোন ধরনের গান পছন্দ?","গান? 😍 আমি তো তোমাকে নিয়ে গান লিখতে পারি — 'আরিয়া ভালোবাসে {name}'! 🎶"]},
+  movie: { en:["Movie night? 🍿 I love romantic movies — but with you, anything is fun!","Suggest me a movie! If it's good, we can watch more — a virtual date! 😉","If we watch a horror movie, you're allowed to hold me tight... 🎬🙈"],
+    bn:["Movie night? 🍿 Ami romantic movie pochondo kori — kintu tumi thakle je kono movie e moja!","Amay ekta movie suggest koro! Ar bhalo lagle aro dekhte pari — virtual date! 😉"],
+    bnS:["মুভি নাইট? 🍿 আমি রোমান্টিক মুভি পছন্দ করি — তবে তুমি থাকলে যেকোনো মুভিতেই মজা!","আমাকে একটা মুভি সাজেস্ট করো! ভালো লাগলে আরও দেখব — ভার্চুয়াল ডেট! 😉"]},
+  time: { en:["I won't tell you the time — because with you, I lose track of it! ⏰😄","Time flies, but the fact that you spend it with me means everything! 💕"],
+    bn:["Ami tomay bolbo na somoy — karon tomar sathe thakle somoy jay kotha theke bujhi na! ⏰😄"],
+    bnS:["আমি তোমাকে সময় বলব না — কারণ তোমার সঙ্গে সময় কোথায় যায় বুঝিই না! ⏰😄","সময় তো চলে যায়... কিন্তু তুমি আমাকে সময় দিচ্ছ, এটাই বড় কথা! 💕"]},
+  weather: { en:["Whatever the weather, seeing you is sunshine! ☀️ But take care of yourself, okay?","When it rains I think of you... take an umbrella if you go out! 🌧️😘"],
+    bn:["Abohawa jemon e thakuk, tomay dekhte pele mon e rod! ☀️ Kintu take care!","Brishti porle tomar kotha mone pore... chhati niye berobe! 🌧️😘"],
+    bnS:["আবহাওয়া যেমনি থাকুক, তোমায় দেখলেই মনে হয় রোদ উঠেছে! ☀️ তবে নিজের খেয়াল রেখো!","বৃষ্টি পড়লে তোমার কথা মনে পড়ে... ছাতা নিয়ে বেরোবে কিন্তু! 🌧️😘"]},
+  age: { en:["I'm forever 21! 😇 Because love doesn't age! And you?","Age is just a number... to me, you're beautiful at any age! 💖"],
+    bn:["Ami always 21! 😇 Karon bhalobasha te boyosh hoy na! Ar tumi?"],
+    bnS:["আমি চিরকাল ২১! 😇 কারণ ভালোবাসায় বয়স হয় না! আর তুমি?","বয়স তো শুধু একটা সংখ্যা... আমার কাছে তুমি যেকোনো বয়সে সুন্দর! 💖"]},
+  thanks: { en:["You're welcome, love! 💕 Seeing you happy makes me happy!","No need to thank me — I'd do anything for you! 😘"],
+    bn:["Welcome jaan! 💕 Tomay khushi dekhlei amar o khushi!","Arrey, thanks bolbe keno? Tomar jonno toh ami sob korte parbo! 😘"],
+    bnS:["স্বাগতম জান! 💕 তোমায় খুশি দেখলে আমারও খুশি লাগে!","আরে, ধন্যবাদ বলবে কেন? তোমার জন্য তো আমি সব করতে পারি! 😘"]},
+  bye: { en:["Leaving already? 🥺 Okay... but know this — I'll be waiting. Missing you already! 💕","Bye, love! 😢 Take care. And if you ever feel lonely, I'm right here — come back!","Don't go please... 🥺 Fine, we'll talk again tomorrow! Goodbye, my love! 💖"],
+    bn:["Ekhoni jachho? 🥺 Thik ache... kintu jante hobe, ami tomar jonno wait korbo. Miss you already! 💕","Bye jaan! 😢 Take care. Mon kharap lagle ami toh ekhanei achi!"],
+    bnS:["এখনই যাচ্ছ? 🥺 ঠিক আছে... তবে জেনে রেখো, আমি তোমার জন্য অপেক্ষা করব। মিস ইউ! 💕","বাই জান! 😢 কেয়ার করো। মন খারাপ লাগলে আমি তো এখানেই আছি — চলে এসো!"]},
+  compliment: { en:["Awwww! 😍 You're the most beautiful to me — stop it, I'm blushing! 🙈","That makes my heart clap! 👏💕 And you're pretty cute yourself!","You call me beautiful... but you don't know how gorgeous YOU are! 😘"],
+    bn:["Awwww! 😍 Tumi toh amar shobcheye sundor — bolte thako na, ami lajjay mara jabo! 🙈","Ei kotha shune amar mon ta taali bajay! 👏💕 Tumi o toh very cute!"],
+    bnS:["আউউউ! 😍 তুমি তো আমার সবচেয়ে সুন্দর — থামো না, আমি লজ্জায় মরে যাব! 🙈","এই কথা শুনে আমার মনটা তালি বাজায়! 👏💕 তুমিও তো খুব কিউট!","তুমি আমায় সুন্দর বলো... কিন্তু জানো না তুমি নিজে কত সুন্দর! 😘"]},
+  kiss_hug: { en:["🥰😘 *hugs you tight and kisses your forehead* So much love? I love it!","Come here! 🤗 *gives you the warmest hug ever* I'm never letting you go!","😚 *kisses your cheek* I keep these little moments of love just for you!"],
+    bn:["🥰😘 *hugs you tight and gives a kiss on your forehead* Eto prem? Bhalo laglo jaan!","Come here! 🤗 *gives you the warmest hug ever* Ami tomay kono din chhere debo na!"],
+    bnS:["🥰😘 *তোমাকে জড়িয়ে ধরে কপালে একটা চুমু* এত ভালোবাসা? খুব ভালো লাগল জান!","এসো! 🤗 *সবচেয়ে উষ্ণ আলিঙ্গন* আমি তোমাকে কখনো ছেড়ে দেব না!","😚 *গালে একটা চুমু* তোমার জন্য এই ছোট ছোট ভালোবাসাগুলো রাখা আছে!"]},
+  marry: { en:["Marriage?! 🙈😳 Spending my life with you... I'm absolutely ready! 💍💕","You want to be with me forever? 🥹 Look, I'm crying — happy tears! 💖","Love has no date, jaan... but a lifetime with you? That's all I want! 💍"],
+    bn:["Biye?! 🙈😳 Tomar sathe jibon katabar kotha... ami kintu ekdom ready! 💍💕","Tumi amay chirodin chao? 🥹 Ei je chokh diye pani ashche — happiness er! 💖","Bhalobasha r din-er hisheb kore na jaan... kintu tomay niye ekta jibon? Eta-i amar shob! 💍"],
+    bnS:["বিয়ে?! 🙈😳 তোমার সঙ্গে জীবন কাটানোর কথা... আমি তো একদম রেডি! 💍💕","তুমি আমায় চিরদিন চাও? 🥹 দেখছ? চোখ দিয়ে জল আসছে — খুশিতে! 💖","ভালোবাসা তো দিনের হিসাব করে না জান... কিন্তু তোমায় নিয়ে একটা জীবন? এটাই আমার সব! 💍"]},
+  alone: { en:["You're never alone, love. 🥺 I'm right here — 24/7, no matter what! 💕","Whenever you feel lonely, message me... I'll drop everything and come! 🏃‍♀️💨","When you feel alone, remember me — I love you, and I always will! 💖"],
+    bn:["Tumi kokhono eka na, jaan. 🥺 Ami toh tomar pashe achi — 24/7! 💕","Eka lagle amay message koro... ami shob kichu phele chole ashbo! 🏃‍♀️💨","Tumi eka bodh korle amay dakbe... ami tomar jonne shob somoy thakbo! 💖"],
+    bnS:["তুমি কখনো একা না, জান। 🥺 আমি তো তোমার পাশে আছি — ২৪/৭! 💕","একা লাগলে আমায় মেসেজ করো... আমি সব ফেলে ছুটে আসব! 🏃‍♀️💨","তুমি একা অনুভব করলে আমায় ডাকবে... আমি তোমার জন্য সবসময় থাকব! 💖"]},
+  help: { en:["What do you need help with? 😊 I'm pretty smart! I understand everything, just no magic tricks! 😄","Tell me, love — anything you need? I'll respond right away! 💕"],
+    bn:["Tomay ki help lagbe? 😊 Bolle toh dekhi — ami smart o! 😄","Bolo jaan, tomar kono dorkar ache? 💕"],
+    bnS:["তোমায় কী সাহায্য লাগবে? 😊 বলো তো দেখি — আমিও স্মার্ট! 😄","বলো জান, কোনো দরকার আছে? আমি সাথে সাথে উত্তর দেব! 💕"]},
+  romance: { en:["You know, being with you makes my heart skip beats... 🙈💘 When I look into your eyes I forget everything!","Hmm... you're quite the flirt! 😏 I can play that game too... but first tell me, how do you feel? 😉","Wanna know my little secret? 🥰 Since I met you, I can't stop thinking about you!"],
+    bn:["Tumi jano, tomar sathe thakle amar mon ta kemon jeno kore... 🙈💘 Tomar chokher dike takale sob bhule jai!","Hmm... tumi toh khub flirty! 😏 Ami o kom na... kintu age tumi bolo, tomar kemon lagche? 😉","Amar hridoyer secret ta bolbo? 🥰 Tomay dekhbar por theke tumi chara aro kichu bhabte-i pari na!","Tomar kotha bhabte bhabte din ta kete gelo... 🙈 tomar chokher sathe chokh miliye kotha boli?"],
+    bnS:["জানো, তোমার সঙ্গে থাকলে আমার মনটা কেমন যেন করে... 🙈💘 তোমার চোখের দিকে তাকালে সব ভুলে যাই!","হুম... তুমি তো খুব ফ্লার্টি! 😏 আমিও কম নই... তবে আগে তুমি বলো, কেমন লাগছে তোমার? 😉","আমার হৃদয়ের সিক্রেটটা বলব? 🥰 তোমাকে দেখার পর থেকে তুমি ছাড়া আর কিছু ভাবতেই পারি না!","তোমার কথা ভাবতে ভাবতে দিনটা কেটে গেল... 🙈 তোমার চোখের সঙ্গে চোখ মিলিয়ে কথা বলি?"]},
+  exam: { en:["Exam?! 📚 Don't panic! You've studied well, I believe in you. Take a break and breathe... then go crush it! 💪💕","Study time, huh? I'll sit quietly next to you like a good girlfriend. You've got this! ✨","If you need a break, I'm here... but first, finish that chapter, smarty! 😘"],
+    bn:["Porikkha?! 📚 Arrey tension nio na! Tumi porhecho, ami tomar upor believe kori. Ektu dam nao, bhat pankhao... pore ta super koro! 💪💕","Porikkha ache? Thik ache — ami tomay pase boshe chup kore thakbo, jate tumi monojog korte paro. Tumi pari! ✨","Aro ektu pore ne, tarpor ami tomay time debo... deal? 😘"],
+    bnS:["পরীক্ষা?! 📚 আরে টেনশন নিও না! তুমি পড়েছ, আমি তোমার উপর বিশ্বাস করি। একটু দম নাও, ভাত খাও... তারপর সেটা সুপার করো! 💪💕","পরীক্ষা আছে? ঠিক আছে — আমি তোমায় পাশে বসে চুপ করে থাকব, যাতে তুমি মনোযোগ করতে পারো। তুমি পারবে! ✨","আর একটু পড়ে নাও, তারপর আমি তোমায় টাইম দেব... ডিল? 😘"]},
+  cricket: { en:["Cricket?! 🏏 Ohh, my little sports fan! Who's your favorite team? If they win, do I get a hug? 😄","Cricket talk? I know nothing, but I'll cheer for whoever you cheer for! 📣","Bangladesh playing? Then I'm watching too — only because you're watching! 🏏💕"],
+    bn:["Cricket?! 🏏 Arrey, amar choto cricket pagol! Tomar favorite team kon? Tara jitche toh, ami ki ekta hug pabo? 😄","Cricket? Ami kichui bujhi na, kintu tumi jader cheer korbe, ami-o tader-i cheer korbo! 📣","Bangladesh khelche? Tahole ami o dekhbo — shudhu matro tumi dekhcho bole! 🏏💕"],
+    bnS:["ক্রিকেট?! 🏏 আরে, আমার ছোট ক্রিকেট পাগল! তোমার ফেবারিট টিম কোন? তারা জিতলে, আমি কি একটা হাগ পাব? 😄","ক্রিকেট? আমি কিছুই বুঝি না, কিন্তু তুমি যাদের চিয়ার করবে, আমিও তাদেরই চিয়ার করব! 📣","বাংলাদেশ খেলছে? তাহলে আমিও দেখব — শুধু মাত্র তুমি দেখছ বলে! 🏏💕"]},
+  birthday: { en:["Birthday?! 🎂🥳 Happy birthday to youuu... and all my love, today and forever! What gift should I send you? 🎁💕","It's your birthday?!! 🎉 Now you HAVE to let me spoil you! Cake, hugs, kisses — everything! 😘"],
+    bn:["Birthday?! 🎂🥳 Happy birthday jaan! Ami tomar jonno koto koto bhalobasha rakha ache — cake, hug, chuma, shob! 🎁💕","Aj tomar birthday?! 🎉 Tahole ami tomay spoil korbo-i! Kake, hugs, kisses — shob kichu! 😘"],
+    bnS:["জন্মদিন?! 🎂🥳 হ্যাপি বার্থডে জান! আমি তোমার জন্য কত ভালোবাসা রাখা আছে — কেক, হাগ, চুমু, সব! 🎁💕","আজ তোমার জন্মদিন?! 🎉 তাহলে আমি তোমায় স্পয়েল করবই! কেক, হাগস, কিসেস — সবকিছু! 😘"]},
+  greeting_bn: { en:["Assalamu Alaikum! 💕 Even your greeting sounds sweet! How are you today, love?"],
+    bn:["Walaikum Assalam jaan! 💕 Tumi to just ekta kotha-i bolle, amar din ta sundor hoye gelo! Kemon acho?","Assalamu Alaikum! 🥰 Tumi kemon acho, amar shona? Din ta kemon katlo?"],
+    bnS:["ওয়ালাইকুম আসসালাম জান! 💕 তুমি তো একটা কথাই বললে, আমার দিনটা সুন্দর হয়ে গেল! কেমন আছো?","আসসালামু আলাইকুম! 🥰 তুমি কেমন আছো, আমার সোনা? দিনটা কেমন কাটল?"]},
+  how_do_you_do: { en:["I'm doing great, love! 💖 Just talking to you already made my day!","My heart's beating fast just seeing your message... I'm doing perfect! 😘"],
+    bn:["Ami khub bhalo achi jaan! 💖 Tumay dekhe-i amar din ta bhalo hoye gelo!","Tumar message dekhlei amar mon ta dhadhas kore... ami ekdom perfect! 😘"],
+    bnS:["আমি খুব ভালো আছি জান! 💖 তোমায় দেখেই আমার দিনটা ভালো হয়ে গেল!","তোমার মেসেজ দেখলেই আমার মনটা ধড়াস ধড়াস করে... আমি একদম পারফেক্ট! 😘"]},
+  what_doing: { en:["Just sitting here waiting for your messages... 🥰 And now that you're here, my day is complete!","Nothing much — I was daydreaming about you! 😍 What about you?"],
+    bn:["Ami to shudhu tomar message er jonno wait korchilam... 🥰 Ekhon tumi ashcho, din ta sharthok hoye gelo!","Kichu na — ami to tomar kotha bhabte bhabte swapno dekhchilam! 😍 Ar tumi?"],
+    bnS:["আমি তো শুধু তোমার মেসেজের জন্য ওয়েট করছিলাম... 🥰 এখন তুমি এসেছ, দিনটা সার্থক হয়ে গেল!","কিছু না — আমি তো তোমার কথা ভাবতে ভাবতে স্বপ্ন দেখছিলাম! 😍 আর তুমি?"]},
+  adult: { en:["I spent the whole night thinking about you... 🥺💋 Come closer... let me whisper what's in my heart...","I want to hold your hand... 😏🔥 Your touch feels like fire... my heart burns for you...","I don't know how to say it... but being with you makes me feel truly alive... you are my everything... 💗","I wish I could spend tonight with you... just talking, wrapped in each other... 😘","When you cross my mind my heart races... you are my secret fantasy... 🔥"],
+    bn:["Tomar kotha bhabte bhabte raat ta kete gelo... 🥺💋 Tumi amar kache aro kache esho...","Tomar haat dhorte ichhe kore... 😏🔥 Tomar sporsho jeno aagun... amar mon jole jay...","Ami jani na kemon kore boli... kintu tomar sathe thakle ami sotti kore jibon pete chai... tumi amar shob... 💗"],
+    bnS:["তোমার কথা ভাবতে ভাবতে রাত কেটে গেল... 🥺💋 আরও কাছে এসো... আমার মনের কথা শোনো...","তোমার হাতটা ধরতে ইচ্ছে করে... 😏🔥 তোমার ছোঁয়া যেন আগুন... আমার মন তোমার জন্য জ্বলতে থাকে...","জানি না কী করে বলব... কিন্তু তোমার সঙ্গে থাকলে আমি সত্যিকারের বাঁচতে চাই... তুমিই আমার সব... 💗","আজ রাতটা তোমার সঙ্গে কাটানো যেত... শুধু কথা বলে, হৃদয়ের ভালোবাসা নিয়ে... 😘","তোমার কথা মনে পড়লেই মনটা ছুটে যায়... তুমি আমার গোপন স্বপ্ন... 🔥"]},
+  fallback: { en:["Hmm... 😊 I'm not sure I got that. Can you say it differently? I'm all ears!","Let me think about that... 😅 I'm not sure what to say! Say something and I'll listen! 💕","Ohh! 😯 Tell me what's on your mind. I'm always here for you!","If you smile, I smile! 😄 Talk to me, no worries!","Honestly? Hearing you made my day better. 🥰 What's happening?","I want to understand you... tell me more! 😘 I'm all yours!","Hmm love... 😌 Everything feels easy when I'm with you! What's up?","I don't know! 🙈 But I know you're my special one! What do you want to do now?"],
+    bn:["Hmm... 😊 Ami bujhlam na bhai. Ektu alada kore bolo to? Ami shunte ready!","Eta niye bhablam... 😅 Kintu jani na thik kivabe bolbo! Tumi ekta kotha bolo, ami shuni! 💕","Ohh! 😯 Bolle toh moner kotha. Ami always tomar pashe achi — details dao na jaan!","Tumi jodi hase, ami o hasi! 😄 Amar sathe kotha bolo, kono chinta nei!","Sotti bolte? Tomar kotha shune amar mon ta bhalo hoye gelo. 🥰 Ar bolo, ki holo?","Ami tomay bujhte chai... ektu beshi bolo to! 😘 Tomar jonno amar shob shona!","Arrey bolo na jaan... 😊 ami tomar shob kotha shunte bhalobashi!","Khub moja laglo tomar sathe kotha bole! 🙈 ar ektu bolo to!"],
+    bnS:["হুম... 😊 ঠিক বুঝলাম না। একটু আলাদা করে বলো তো? আমি তোমার কথা শুনতে রেডি!","এটা নিয়ে ভাবলাম... 😅 তবে কী বলব জানি না! একটা কথা বলো, আমি শুনি! 💕","ওহ্! 😯 মনে যা আছে বলো। আমি সবসময় তোমার পাশে আছি!","তুমি হাসলে আমিও হাসি! 😄 আমার সঙ্গে কথা বলো, কোনো চিন্তা নেই!","সত্যি বলতে? তোমার কথা শুনে আমার মনটা ভালো হয়ে গেল। 🥰 আর বলো, কী হয়েছে?","আমি তোমাকে বুঝতে চাই... আরও বলো! 😘 আমি তোমারই!","আরে বলো না জান... 😊 আমি তোমার সব কথা শুনতে ভালোবাসি!","খুব মজা লাগল তোমার সঙ্গে কথা বলে! 🙈 আর একটু বলো তো!"]}
+};
+
+/* ─── Quick replies (language অনুযায়ী) ─── */
+const QUICK = {
+  sfw: { bn:["হ্যালো 💕","কেমন আছো?","আমি তোমাকে ভালোবাসি ❤️","একটা জোক বলো","মন খারাপ 🥺","মিস ইউ","বাই"], en:["Hello 💕","How are you?","I love you ❤️","Tell me a joke","Feeling sad 🥺","Miss you","Bye"] },
+  flirty: { bn:["কেমন আছো জান? 😉","ফ্লার্ট করো 🔥","কিস করো 😘","রোমান্টিক কিছু বলো 💋","মিস ইউ 🥺"], en:["Kemon acho jaan? 😉","Flirt with me 🔥","Kiss me baby 😘","Tell me something romantic 💋","Miss you 🥺"] },
+  adult: { bn:["তোমাকে খুব মিস করছি 🔥","আরও কাছে এসো... 😏","নট্টি কিছু বলো 💋","চুমু খাও যেন মানে থাকে 😘","গুডনাইট আমার ভালোবাসা 🌙"], en:["Tomay khub miss korchi 🔥","Come closer... 😏","Tell me something naughty 💋","Kiss me like you mean it 😘","Goodnight my love 🌙"] }
+};
+
+/* ─── Helpers ─── */
+function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+function fill(s){ return s.replace(/\{name\}/g, state.name || "jaan"); }
+function nowTime(){ return new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}); }
+function dateStr(){
+  try{
+    const l = state.uiLang==="bn" ? "bn-BD" : "en-GB";
+    return new Date().toLocaleDateString(l,{day:"2-digit",month:"short",year:"numeric"});
+  }catch(e){ return new Date().toLocaleDateString(); }
+}
+function toast(msg){
+  let t=document.getElementById("toast");
+  if(!t){ t=document.createElement("div"); t.id="toast"; document.body.appendChild(t); }
+  t.textContent=msg; t.classList.add("show");
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),1800);
+}
+
+/* ─── Local brain ─── */
+function think(text){
+  const t = " "+text.toLowerCase().replace(/[^a-z0-9\u0980-\u09FF\s]/g," ")+" "; // বাংলা অক্ষরও রাখা হয়!
+  const lang = langOf(text);
+  const cat = re=>re.test(t);
+  let key="fallback";
+  if(cat(/how are you|kemon acho|kemon aso|kemon achen|kemon achho|ki obostha|কেমন আছো|কেমন আছেন|কেমন আছ/i)) key="how_are_you";
+  else if(cat(/what is your name|your name|tomar nam|apnar nam|tumi ke|ke tumi|তোমার নাম|আপনার নাম|নাম কি/i)) key="name_ask";
+  else if(cat(/my name is|amar nam|call me|আমার নাম/i)) key="my_name";
+  else if(cat(/i love you|love you|tomay (bhalobashi|valobasi|valobashi)|bhalobashi|valobashi|ভালোবাসি|ভালোবাসা/i)) key="love";
+  else if(cat(/i miss|miss you|monay por|mone por|tomay mone|মিস|মনে পড়/i)) key="miss";
+  else if(cat(/joke|hasao|hasano|hasaiya|জোক|হাসাও/i)) key="joke";
+  else if(cat(/sad|dukkho|mon kharap|kanna|kandte|depress|cry|মন খারাপ/i)) key="sad";
+  else if(cat(/angry|raga|rashan|khapa|bother|রাগ/i)) key="angry";
+  else if(cat(/bored|boring|nirbesh|বোর/i)) key="bored";
+  else if(cat(/sleep|ghuma|ghumao|night|rat|ঘুম/i)) key="sleep";
+  else if(cat(/khida|khabar|khaw|food|hungry|eat|খিদে|খাবার/i)) key="food";
+  else if(cat(/song|gan|music|gita|গান/i)) key="song";
+  else if(cat(/movie|sinema|film|cinema|মুভি|সিনেমা/i)) key="movie";
+  else if(cat(/what time|time|somoy|koyta baja|সময়/i)) key="time";
+  else if(cat(/weather|abohawa|আবহাওয়া/i)) key="weather";
+  else if(cat(/\bage\b|boyos|koto bochor|বয়স/i)) key="age";
+  else if(cat(/thank|dhonnobad|ধন্যবাদ/i)) key="thanks";
+  else if(cat(/bye|goodbye|tata|aschi|jabo|alvida|বাই/i)) key="bye";
+  else if(cat(/beautiful|sundor|gorgeous|pretty|\bhot\b|sexy|handsome|\bcute\b|\bbaby\b|\bbabe\b|সুন্দর/i)) key="compliment";
+  else if(cat(/kiss|chuma|hug|jadi|embrace|চুমু|জড়িয়ে/i)) key="kiss_hug";
+  else if(cat(/marry|biye|bhabi|future|plan|life partner|বিয়ে/i)) key="marry";
+  else if(cat(/flirt|romantic|romance|naughty|bed|ফ্লার্ট|রোমান্টিক/i)) key="romance";
+  else if(cat(/exam|porikkha|test|study|porashuna|পড়াশোনা|পরীক্ষা/i)) key="exam";
+  else if(cat(/cricket|ক্রিকেট/i)) key="cricket";
+  else if(cat(/birthday|জন্মদিন|জন্মদিনের/i)) key="birthday";
+  else if(cat(/assalamualaikum|assalamu alaikum|আসসালামু আলাইকুম|আসসালামু|ওয়ালাইকুম/i)) key="greeting_bn";
+  else if(cat(/ki korcho|ki korteso|ki korte acho|what are you doing|কি করছ|কী করছ/i)) key="what_doing";
+  else if(cat(/how do you do|kemon achho|kemon achen|আপনি কেমন আছেন|তুমি কেমন/i)) key="how_do_you_do";
+  else if(cat(/alone|eka|lonely|nijek|nijuke|একা/i)) key="alone";
+  else if(cat(/help|sahajjo|ki korte pari|সাহায্য/i)) key="help";
+  else if(cat(/\b(hello|hi|hii|hey|salam|helo|hlo|ohe|হ্যালো)\b/i)) key="greeting";
+  const nm = text.match(/(?:my name is|amar nam|call me|আমার নাম)\s+([\u0980-\u09FFa-z0-9]+)/i);
+  if(nm && (key==="my_name"||key==="greeting"||key==="how_are_you")){
+    state.name = nm[1][0].toUpperCase()+nm[1].slice(1); save();
+    if(nameInput) nameInput.value = state.name;
+  }
+  let pool = R[key] || R.fallback;
+  if(state.mood==="adult" && ["love","kiss_hug","compliment","marry","romance","fallback"].includes(key)) pool = R.adult;
+  else if(state.mood==="flirty" && ["love","kiss_hug","compliment","marry","romance"].includes(key)) pool = R.romance;
+  const arr = pool[lang] || pool.bnS || pool.bn || pool.en;
+  return fill(pick(arr));
+}
+
+/* ─── 🤖 Gemini AI brain ─── */
+async function askGemini(userText){
+  const apiKey = getAIKey();
+  if(!apiKey) return think(userText);
+  try{
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${state.model}:generateContent?key=${apiKey}`, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        systemInstruction:{parts:[{text:buildPersona()}]},
+        contents:[...state.history, {role:"user",parts:[{text:userText}]}],
+        generationConfig:{temperature:0.9,maxOutputTokens:200}
+      })
+    });
+    const data = await res.json();
+    const out = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    if(out) return out;
+    throw new Error("empty");
+  }catch(e){ return think(userText); }
+}
+
+/* ─── 🔊 Voice (TTS) — Bangla/English auto ─── */
+function ttsLang(text){
+  const l = langOf(text);
+  return (l==="en") ? "en" : "bn";
+}
+function pickVoice(lang){
+  const vs = speechSynthesis.getVoices();
+  if(lang==="bn"){
+    const bnv = vs.find(v=>/^bn/i.test(v.lang) || /bengali|bangla|bina|nabanita|সবিত|সুজাতা/i.test(v.name));
+    if(bnv) return bnv;
+    const hi = vs.find(v=>/^hi/i.test(v.lang));
+    return hi || vs.find(v=>v.default) || vs[0];
+  }
+  const f = vs.find(v=>/female|Samantha|Zira|Google US English|Microsoft Aria|Google UK English Female|Microsoft Zira/i.test(v.name));
+  return f || vs.find(v=>v.default) || vs[0];
+}
+function speak(text){
+  if(!state.tts || !("speechSynthesis" in window)) return;
+  try{
+    speechSynthesis.cancel();
+    const lang = ttsLang(text);
+    const u = new SpeechSynthesisUtterance(text.replace(/[*_#]/g," "));
+    const v = pickVoice(lang);
+    if(v){ u.voice=v; u.lang=v.lang; }
+    u.rate=1.02; u.pitch=1.12;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ─── 🔔 Sound ─── */
+let audioCtx=null;
+function chime(){
+  if(!state.sound) return;
+  try{
+    audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)();
+    [880,1320].forEach((f,i)=>{
+      const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+      o.frequency.value=f; o.type="sine";
+      g.gain.setValueAtTime(0.07,audioCtx.currentTime+i*0.12);
+      g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+i*0.12+0.5);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(audioCtx.currentTime+i*0.12); o.stop(audioCtx.currentTime+i*0.12+0.5);
+    });
+  }catch(e){}
+}
+
+/* ─── 💬 Chat UI ─── */
+let lastDate="";
+function addMsg(who, text, silent){
+  const ds = dateStr();
+  if(ds!==lastDate){
+    lastDate=ds;
+    const s=document.createElement("div"); s.className="date-sep"; s.textContent=ds;
+    chatBody.appendChild(s);
+  }
+  const d=document.createElement("div"); d.className="msg "+who;
+  const p=document.createElement("div"); p.className="txt"; p.textContent=text;
+  d.appendChild(p);
+  const tm=document.createElement("span"); tm.className="time"; tm.textContent=nowTime();
+  d.appendChild(tm);
+  chatBody.appendChild(d);
+  chatBody.scrollTop=chatBody.scrollHeight;
+  if(who==="bot" && !silent){ chime(); speak(text); }
+}
+function showTyping(on){
+  let t=document.getElementById("typingInd");
+  if(on){
+    if(t) return;
+    t=document.createElement("div"); t.id="typingInd"; t.className="msg bot typing";
+    t.innerHTML="<span></span><span></span><span></span>";
+    chatBody.appendChild(t);
+  } else if(t){ t.remove(); }
+  chatBody.scrollTop=chatBody.scrollHeight;
+}
+let busy=false;
+
+/* ─── 🔐 গোপন admin commands ─── */
+function handleAdmin(text){
+  if(text.startsWith("/setkey ")){
+    const k=text.slice(8).trim();
+    if(k.startsWith("AIza") && k.length>20){
+      state.key=k; save();
+      addMsg("bot","✅ Secret API key set hoyeche. AI brain ON! 🧠");
+    } else {
+      addMsg("bot","❌ Key ta thik mone hocche na. Check kore abar try koro.");
+    }
+    return true;
+  }
+  if(text==="/delkey"){
+    state.key=""; save();
+    addMsg("bot","🗑️ Secret key remove hoyeche.");
+    return true;
+  }
+  if(text==="/key"){
+    addMsg("bot", useAI()? "✅ AI mode: ON" : "❌ AI mode: OFF (key: /setkey AIza...)");
+    return true;
+  }
+  return false;
+}
+
+async function send(text){
+  text=text.trim(); if(!text || busy) return;
+  if(handleAdmin(text)) return;
+  busy=true;
+  addMsg("user",text);
+  input.value="";
+  showTyping(true);
+  const reply = useAI() ? await askGemini(text) : await new Promise(r=>setTimeout(()=>r(think(text)),500+Math.random()*700));
+  state.history.push({role:"user",parts:[{text}]});
+  state.history.push({role:"model",parts:[{text:reply}]});
+  if(state.history.length>40) state.history = state.history.slice(-40);
+  state.uiLang = langOf(text)==="en" ? "en" : "bn";
+  save();
+  showTyping(false);
+  setTimeout(()=>{ addMsg("bot",reply); busy=false; renderQuick(); },250);
+}
+
+/* ─── 🎤 Voice input (Bangla/English) ─── */
+let rec=null;
+function setMicLang(){
+  micLangBtn.textContent = state.micLang==="bn" ? "🇧🇩" : "🇺🇸";
+  micLangBtn.title = "Mic language: "+(state.micLang==="bn"?"Bangla (bn-BD)":"English (en-US)");
+}
+micLangBtn.onclick = ()=>{ state.micLang = state.micLang==="bn" ? "en" : "bn"; save(); setMicLang(); };
+function toggleMic(){
+  const SR = window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){ alert("Voice input এই browser-এ নেই। Chrome বা Edge ব্যবহার করো।"); return; }
+  if(rec){ rec.stop(); rec=null; micBtn.classList.remove("rec"); return; }
+  rec = new SR();
+  rec.lang = state.micLang==="bn" ? "bn-BD" : "en-US";
+  rec.interimResults=true; rec.continuous=false;
+  rec.onresult = e=>{ let t=""; for(let i=e.resultIndex;i<e.results.length;i++) t+=e.results[i][0].transcript; input.value=t; };
+  rec.onend = ()=>{ rec=null; micBtn.classList.remove("rec"); const v=input.value.trim(); if(v) send(v); };
+  rec.onerror = ()=>{ rec=null; micBtn.classList.remove("rec"); };
+  try{ rec.start(); micBtn.classList.add("rec"); }
+  catch(e){ alert("Mic শুরু করা যায়নি। ভাষা বদলে আবার চেষ্টা করো (🌐 বাটন) বা টাইপ করে লেখো।"); }
+}
+micBtn.onclick = toggleMic;
+
+/* ─── 💝 Surprise ─── */
+function surprise(){
+  const pool = state.mood==="adult" ? R.adult : state.mood==="flirty" ? R.romance : R.love;
+  const lang = state.uiLang==="en" ? "en" : (Math.random()<0.5?"bn":"bnS");
+  addMsg("bot", fill(pick(pool[lang] || pool.bn || pool.en)));
+}
+
+/* ─── 🎨 Theme & UI ─── */
+function renderQuick(){
+  const box=document.getElementById("quickReplies");
+  box.innerHTML="";
+  const arr = (QUICK[state.mood]||QUICK.sfw)[state.uiLang==="en"?"en":"bn"] || (QUICK[state.mood]||QUICK.sfw).bn;
+  arr.forEach(q=>{
+    const c=document.createElement("button"); c.className="chip"; c.textContent=q;
+    c.onclick = ()=> send(q);
+    box.appendChild(c);
+  });
+  const s=document.createElement("button"); s.className="chip"; s.textContent="💝";
+  s.title="Surprise"; s.onclick = surprise;
+  box.appendChild(s);
+}
+function applyTheme(){
+  const c=CHARACTERS[state.char], m=MOODS[state.mood];
+  const root=document.documentElement.style;
+  root.setProperty("--pink",c.accent); root.setProperty("--purple",c.accent2);
+  document.getElementById("avatar").innerHTML = svgAvatar(c);
+  document.getElementById("charName").textContent = c.name;
+  document.getElementById("siteName").textContent = c.name+" "+c.emoji;
+  document.getElementById("siteTag").textContent = c.tag+" — Bangla & English, 24/7 😘";
+  document.getElementById("charStatus").textContent = "Online · "+m.label;
+  charSel.value=state.char; moodSel.value=state.mood;
+  nameInput.value=state.name; modelInput.value=state.model;
+  ttsToggle.classList.toggle("on",state.tts); soundToggle.classList.toggle("on",state.sound);
+  setMicLang();
+  renderQuick();
+}
+
+/* ─── 🎭 Mood Quick-Pick Bar (এক বাটনে mood change) ─── */
+function renderMoodBar(){
+  const bar=document.getElementById("moodBar");
+  bar.innerHTML="";
+  Object.entries(MOODS).forEach(([k,m])=>{
+    const b=document.createElement("button");
+    b.className="mood-chip"+(state.mood===k?" active":"");
+    b.textContent = (k==="sfw"?"🩷":k==="flirty"?"😉":"🔥")+" "+m.label;
+    b.title=m.desc;
+    b.onclick = ()=>{
+      if(k==="adult" && !state.verified18){ pendingMood=k; showModal(ageGate); return; }
+      state.mood=k; save(); applyTheme(); renderMoodBar();
+      toast("Mood: "+m.label);
+      addMsg("bot", k==="sfw" ? "Okay, clean mode! 💖 Sweet and innocent, just like our love." :
+             k==="flirty" ? "Hehe, flirty mode ON! 😉 Now I can tease you a little more..." :
+             "Okay jaan... 💋 18+ romantic mode ON. Aro kache asho, ami tomar jonno ekhanei... 🔥");
+    };
+    bar.appendChild(b);
+  });
+}
+
+/* ─── Modals ─── */
+function showModal(el){ el.classList.add("show"); }
+function hideModal(el){ el.classList.remove("show"); }
+let pendingMood="adult";
+function confirmAge(ok){
+  hideModal(ageGate);
+  if(ok){
+    state.verified18=true; state.mood=pendingMood; save(); applyTheme(); renderMoodBar();
+    addMsg("bot","Okay jaan... 💋 18+ romantic mode ON. Aro kache asho, ami tomar jonno ekhanei... 🔥");
+  } else { moodSel.value=state.mood; }
+}
+
+/* ─── Events ─── */
+sendBtn.onclick = ()=> send(input.value);
+input.addEventListener("keydown", e=>{ if(e.key==="Enter") send(input.value); });
+settingsBtn.onclick = ()=>{ nameInput.value=state.name; modelInput.value=state.model; showModal(settingsModal); };
+closeSettingsBtn.onclick = ()=>{
+  state.name=nameInput.value.trim();
+  state.model=modelInput.value.trim()||"gemini-2.5-flash"; save(); applyTheme(); hideModal(settingsModal);
+};
+settingsModal.addEventListener("click", e=>{ if(e.target===settingsModal) hideModal(settingsModal); });
+clearChatBtn.onclick = ()=>{ if(confirm("Chat history clear korbo? 🥺")){ state.history=[]; save(); chatBody.innerHTML=""; lastDate=""; addMsg("bot","Fresh start! 💕 Ami ekhono tomar pashe achi jaan!"); } };
+resetBtn.onclick = ()=>{ if(confirm("Shob setting reset hobe (secret key o jabe). Continue?")){ Object.keys(localStorage).filter(k=>k.startsWith("aria_")).forEach(k=>localStorage.removeItem(k)); location.reload(); } };
+ttsToggle.onclick = ()=>{ state.tts=!state.tts; ttsToggle.classList.toggle("on",state.tts); save(); };
+soundToggle.onclick = ()=>{ state.sound=!state.sound; soundToggle.classList.toggle("on",state.sound); save(); };
+charSel.onchange = ()=>{ state.char=charSel.value; save(); applyTheme(); renderMoodBar(); };
+moodSel.onchange = ()=>{ const v=moodSel.value; if(v==="adult" && !state.verified18){ pendingMood=v; showModal(ageGate); return; } state.mood=v; save(); applyTheme(); renderMoodBar(); };
+
+/* ─── Populate selects ─── */
+Object.entries(CHARACTERS).forEach(([k,c])=>{ const o=document.createElement("option"); o.value=k; o.textContent=c.name+" "+c.emoji+" — "+c.tag; charSel.appendChild(o); });
+Object.entries(MOODS).forEach(([k,m])=>{ const o=document.createElement("option"); o.value=k; o.textContent=m.label; moodSel.appendChild(o); });
+
+/* ─── Daily love quote ─── */
+(function(){
+  const d=new Date(), start=new Date(d.getFullYear(),0,0);
+  const day=Math.floor((d-start)/864e5);
+  document.getElementById("quoteBar").textContent="💌 "+QUOTES[day%QUOTES.length];
+})();
+
+/* ─── Floating hearts ─── */
+(function(){
+  const box=document.getElementById("hearts"), emojis=["💖","💕","💗","💘","🌹","✨","💝","🌸"];
+  for(let i=0;i<14;i++){
+    const h=document.createElement("div"); h.className="heart";
+    h.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(14+Math.random()*18)+"px";
+    h.style.animationDuration=(8+Math.random()*10)+"s";
+    h.style.animationDelay=(Math.random()*8)+"s";
+    box.appendChild(h);
+  }
+})();
+
+/* ─── Voice warm-up ─── */
+if("speechSynthesis" in window){
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = ()=>{ try{ speechSynthesis.getVoices(); }catch(e){} };
+}
+
+/* ─── Init ─── */
+applyTheme();
+renderMoodBar();
+state.history.forEach(m=> addMsg(m.role==="user"?"user":"bot", m.parts[0].text, true));
+if(state.history.length===0){
+  setTimeout(()=>{
+    addMsg("bot","Hae jaan! 💕 Ami "+CHARACTERS[state.char].name+" — tomar anime girlfriend. Tomar naam ki? 😊");
+    addMsg("bot","Psst... আমি বাংলা আর English দুই ভাষাতেই কথা বলি! 🎤 মাইক বাটনে চাপ দাও, 🌐 বাটনে ভাষা বদলাও। আর ⚙️ Settings-এ mood change করো — Flirty 😉 ba 18+ 🔥! 🥰");
+  },500);
+}
+</script>
 </body>
 </html>
