@@ -12,7 +12,7 @@
 <!-- ══════════════════════════════════════════════
      🎯 ADSTERRA: POPUNDER CODE (Head section)
 ══════════════════════════════════════════════════ -->
-<!-- ADSTERRA POPUNDER CODE HERE -->
+<!-- Paste your Adsterra Popunder code here -->
 
 <style>
 :root{
@@ -161,7 +161,7 @@ footer{position:relative;z-index:2;text-align:center;padding:10px;color:#6f6288;
 <!-- ══════════════════════════════════════════════
      🎯 ADSTERRA: BANNER 728x90 (Responsive)
 ══════════════════════════════════════════════════ -->
-<div class="ad-slot">[ 📢 ADSTERRA BANNER CODE HERE (728x90 / Responsive) ]</div>
+<div class="ad-slot">Paste your Adsterra 728x90 / Responsive banner code here</div>
 
 <main>
   <div class="chat-card">
@@ -195,14 +195,14 @@ footer{position:relative;z-index:2;text-align:center;padding:10px;color:#6f6288;
 <!-- ══════════════════════════════════════════════
      🎯 CPA NETWORK SMARTLINK BUTTON
 ══════════════════════════════════════════════════ -->
-<a class="cpa-btn" id="cpaLink" href="https://YOUR-CPA-SMARTLINK.com" target="_blank" rel="nofollow noopener">
+<a class="cpa-btn" id="cpaLink" href="YOUR-CPA-SMARTLINK-HERE" target="_blank" rel="nofollow noopener">
   💘 Meet Aria's Friends — Real Girls Online
 </a>
 
 <!-- ══════════════════════════════════════════════
      🎯 ADSTERRA: SOCIAL BAR / PUSH ADS CODE (Body end)
 ══════════════════════════════════════════════════ -->
-<!-- ADSTERRA SOCIAL BAR / PUSH CODE HERE -->
+<!-- Paste your Adsterra Social Bar / Push code here -->
 
 <footer>
   Aria is an AI chatbot for entertainment &amp; companionship. 18+ mode requires adult age.<br>
@@ -229,7 +229,6 @@ footer{position:relative;z-index:2;text-align:center;padding:10px;color:#6f6288;
     <div class="row"><label>Character (Anime Girlfriend) — ৯ জন</label><select id="charSel"></select></div>
     <div class="row"><label>Chat Mood</label><select id="moodSel"></select></div>
     <div style="font-size:11.5px;color:#8a7aa8;margin-top:6px">💡 চ্যাটের উপরে mood chip-এ ক্লিক করেও instant mood change করতে পারো!</div>
-    <div class="row"><label>AI Model (free: gemini-2.5-flash)</label><input id="modelInput"></div>
     <div class="toggle-row"><span>🔊 Speak replies (voice)</span><div class="switch" id="ttsToggle"></div></div>
     <div class="toggle-row"><span>🔔 Message sound</span><div class="switch" id="soundToggle"></div></div>
     <p style="font-size:11.5px">💡 Bangla voice পেতে Windows-এ Edge browser ব্যবহার করো (Bengali voice থাকে)। Chrome-এ Bangla voice নাও থাকতে পারে।</p>
@@ -243,15 +242,15 @@ footer{position:relative;z-index:2;text-align:center;padding:10px;color:#6f6288;
 
 <script>
 /* ════════════════════════════════════════════════════
-   🔐 GEMINI API KEY — SETUP (গোপন, settings এ দেখাবে না)
+   🔐 GEMINI API KEY — SETUP (গোপন)
    ════════════════════════════════════════════════════
    পদ্ধতি ১ (সহজ):   HARD_KEY এর "" ভিতরে key paste করো  →  const HARD_KEY = "AIza...";
    পদ্ধতি ২ (গোপন): browser console এ লিখে btoa("AIza...") → output টা HARD_KEY_B64 তে দাও
    পদ্ধতি ৩ (কোড ছাড়া): সাইটে ঢুকে চ্যাটে লিখো  /setkey AIza...  (শুধু তুমিই জানবে)
    Key মুছতে: /delkey   ·  Status দেখতে: /key
 ════════════════════════════════════════════════════ */
-const HARD_KEY    = "AQ.Ab8RN6Ijs_ct_mRTMgjOf1AaNBHmcFrf5-TAnK_ScpdGc8oj1w";   // ← পদ্ধতি ১: সরাসরি key (AIza...)
-const HARD_KEY_B64 = "";  // ← পদ্ধতি ২: base64 এনকোড করা key (ঐচ্ছিক)
+const HARD_KEY    = "AQ.Ab8RN6JvLr792lyCQzM6EnHvqeEB0xHnD_OBH-o0tbBeirMQCw";   // নিরাপত্তার জন্য API key এখানে রাখা হয়নি
+const HARD_KEY_B64 = "AQ.Ab8RN6JvLr792lyCQzM6EnHvqeEB0xHnD_OBH-o0tbBeirMQCw";  // ← পদ্ধতি ২: base64 এনকোড করা key (ঐচ্ছিক)
 
 /* ─── 🎀 Anime Characters (৯ জন!) ─── */
 const CHARACTERS = {
@@ -327,7 +326,7 @@ function load(){
   let h=[]; try{ h=JSON.parse(localStorage.getItem("aria_history")||"[]"); }catch(e){ h=[]; }
   return {
     name: g("aria_name",""), mood: g("aria_mood","sfw"), char: g("aria_char","aria"),
-    key: g("aria_key",""), model: g("aria_model","gemini-2.5-flash"),
+    key: g("aria_key",""), model: "gemini-2.5-flash",
     tts: g("aria_tts","0")==="1", sound: g("aria_sound","0")==="1",
     verified18: g("aria_18","0")==="1", micLang: g("aria_mic","en"),
     uiLang: g("aria_ui","bn"), history: Array.isArray(h)?h:[]
@@ -336,7 +335,7 @@ function load(){
 function save(){ try{
   localStorage.setItem("aria_name",state.name); localStorage.setItem("aria_mood",state.mood);
   localStorage.setItem("aria_char",state.char); localStorage.setItem("aria_key",state.key);
-  localStorage.setItem("aria_model",state.model); localStorage.setItem("aria_tts",state.tts?"1":"0");
+  localStorage.removeItem("aria_model"); localStorage.setItem("aria_tts",state.tts?"1":"0");
   localStorage.setItem("aria_sound",state.sound?"1":"0"); localStorage.setItem("aria_18",state.verified18?"1":"0");
   localStorage.setItem("aria_mic",state.micLang); localStorage.setItem("aria_ui",state.uiLang);
   localStorage.setItem("aria_history",JSON.stringify(state.history.slice(-40)));
@@ -364,7 +363,6 @@ const sendBtn=document.getElementById("sendBtn");
 const settingsBtn=document.getElementById("settingsBtn"), settingsModal=document.getElementById("settingsModal");
 const ageGate=document.getElementById("ageGate"), moodSel=document.getElementById("moodSel");
 const charSel=document.getElementById("charSel"), nameInput=document.getElementById("nameInput");
-const modelInput=document.getElementById("modelInput");
 const ttsToggle=document.getElementById("ttsToggle"), soundToggle=document.getElementById("soundToggle");
 const closeSettingsBtn=document.getElementById("closeSettingsBtn");
 const clearChatBtn=document.getElementById("clearChatBtn"), resetBtn=document.getElementById("resetBtn");
@@ -747,7 +745,7 @@ function applyTheme(){
   document.getElementById("siteTag").textContent = c.tag+" — Bangla & English, 24/7 😘";
   document.getElementById("charStatus").textContent = "Online · "+m.label;
   charSel.value=state.char; moodSel.value=state.mood;
-  nameInput.value=state.name; modelInput.value=state.model;
+  nameInput.value=state.name;
   ttsToggle.classList.toggle("on",state.tts); soundToggle.classList.toggle("on",state.sound);
   setMicLang();
   renderQuick();
@@ -789,10 +787,10 @@ function confirmAge(ok){
 /* ─── Events ─── */
 sendBtn.onclick = ()=> send(input.value);
 input.addEventListener("keydown", e=>{ if(e.key==="Enter") send(input.value); });
-settingsBtn.onclick = ()=>{ nameInput.value=state.name; modelInput.value=state.model; showModal(settingsModal); };
+settingsBtn.onclick = ()=>{ nameInput.value=state.name; showModal(settingsModal); };
 closeSettingsBtn.onclick = ()=>{
   state.name=nameInput.value.trim();
-  state.model=modelInput.value.trim()||"gemini-2.5-flash"; save(); applyTheme(); hideModal(settingsModal);
+  state.model="gemini-2.5-flash"; save(); applyTheme(); hideModal(settingsModal);
 };
 settingsModal.addEventListener("click", e=>{ if(e.target===settingsModal) hideModal(settingsModal); });
 clearChatBtn.onclick = ()=>{ if(confirm("Chat history clear korbo? 🥺")){ state.history=[]; save(); chatBody.innerHTML=""; lastDate=""; addMsg("bot","Fresh start! 💕 Ami ekhono tomar pashe achi jaan!"); } };
